@@ -1,15 +1,14 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <title>BIRME - Variant For SD</title>
+    <title>BRIME中文版</title>
     <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+<!--     <link rel="preconnect" href="https://fonts.gstatic.com"> -->
     <link rel="stylesheet" type="text/css" href="css/meddon.css">
     <meta name="viewport" content="initial-scale=0.5, maximum-scale=1" />
     <meta name="robots" content="noindex">
     <meta name="description"
-      content="BIRME is a flexible and easy to use bulk image resizer.
-        It can resize multiple images to any specific dimension and crop images if necessary. It's an online tool and you don't need to download or install on your computer. BIRME is absolutely free to use. It works on both Mac and Windows machines." />
+      content="A flexible and easy to use bulk image resizer forked from BRIME." />
     <link rel="shortcut icon" type="image/png" href="static/images/favicon.png" />
     <link rel="shortcut icon" href="static/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -19,13 +18,13 @@
     <nav class="d-flex align-items-center justify-content-between pt-3 fixed-top">
       <ul class="d-inline-block list-inline m-0">
         <li class="list-inline-item">
-          <a class="logo mr-4" href="javascript:void(0)" onclick="birme.show_section('main')">Birme</a>
+          <a class="logo mr-4" href="javascript:void(0)" onclick="birme.show_section('main')">BRIME中文版</a>
         </li>
         <li class="list-inline-item">
-          <a class="nav-link" href="javascript:void(0)" onclick="birme.show_section('about')">About Birme</a>
+          <a class="nav-link" href="javascript:void(0)" onclick="birme.show_section('about')">关于BRIME中文版</a>
         </li>
         <li class="list-inline-item">
-          <a class="nav-link" href="https://birme.net/blog/">Blog</a>
+          <a class="nav-link" href="https://birme.net/blog/">访问BRIME</a>
         </li>
       </ul>
     </nav>
@@ -35,58 +34,57 @@
         <div class="tiles-holder"></div>
         <div class="welcome">
           <div class="text-center w-50">
-            <h1>Bulk Image Resizing Made Easy 2.0</h1>
+            <h1>Bulk Image Resizing Made Easy 2.0 - CN</h1>
             <h4 class="mb-4 d-none"><b>BIRME</b> - <b>B</b>ulk <b>I</b>mage <b>R</b>esizing <b>M</b>ade <b>E</b>asy 2.0</h4>
-            <p>BIRME is a flexible and easy to use bulk image resizer. It can resize your images to any specific dimension and crop them proportionately if necessary. It's an online tool and you don't
-              need to download or install on your computer. BIRME is absolutely free to use.</p>
+            <p>BIRME可以将您的图像调整为任何特定尺寸, 并在必要时按比例裁剪它们. 它是一个在线工具, 您无需在计算机上下载或安装, 完全免费使用. 数据将在本地完成处理, 不会上传.</p>
             <div class="icon icon-drag"></div>
-            <p class="pb-0 mb-2 text-uppercase">Drop your images here</p>
+            <p class="pb-0 mb-2 text-uppercase">拖拽图片到这里</p>
 
-            <div class="small">- OR -</div>
+            <div class="small">- 或 -</div>
             <div class="btn-browse btn btn-primary">
               <input type="file" id="file-1" class="inputfile" multiple onchange="birme.add_all(event)" />
-              <label><span>Browse from your computer</span></label>
+              <label><span>选择本地文件</span></label>
             </div>
 
-            <p class="mt-4"><a href="https://birme.net">(Looking for the real BIRME version 2?)</a></p>
-            <p class="mt-4"><a href="https://v1.birme.net">(Looking for version 1?)</a></p>
+            <p class="mt-4"><a href="https://birme.net">(BRIME2官网)</a></p>
+            <p class="mt-4"><a href="https://v1.birme.net">(BRIME官网)</a></p>
           </div>
         </div>
         <div class="btn-browse btn btn-primary">
         <input type="file" id="file-1" class="inputfile" multiple onchange="birme.add_all(event)" />
-        <label><span>Add more files</span></label>
+        <label><span>添加更多</span></label>
       </div>
     </div>
     <div class="panels">
       <div class="panel panel-resize show">
-        <button type="button" onclick="config.toggle_panel(this)" class="btn btn-toggle">Resize / Crop</button>
+        <button type="button" onclick="config.toggle_panel(this)" class="btn btn-toggle">缩放 / 裁剪</button>
         <!-- Resize by pixel -->
 
         <div class="options-holder " style="display: block">
           <div class="width-input">
             <div class="width-height mr-5">
-              <label for="target_width">Width</label>
+              <label for="target_width">宽度</label>
               <input type="number" id="target_width" min="1" onchange="config.update(this)" /> px
             </div>
-            <label><input tabindex="-1" type="checkbox" id="auto_width" onchange="config.update(this)" /> Auto Width</label>
+            <label><input tabindex="-1" type="checkbox" id="auto_width" onchange="config.update(this)" /> 自动宽度</label>
           </div>
           <div class="height-input mt-2">
             <div class="width-height mr-5">
-              <label for="target_width">Height</label>
+              <label for="target_width">高度</label>
               <input type="number" id="target_height" min="1" onchange="config.update(this)" /> px
             </div>
-            <label><input tabindex="-1" type="checkbox" id="auto_height" onchange="config.update(this)" /> Auto Height</label>
+            <label><input tabindex="-1" type="checkbox" id="auto_height" onchange="config.update(this)" /> 自动高度</label>
           </div>
           <div class="height-input mt-2 ratio">
             <div class="width-height mr-5">
-              <label for="target_width">Ratio</label>
+              <label for="target_width">百分比</label>
               <input id="ratio_w" type="number" class="w-25" onchange="config.update_ratio()"></input> :
               <input id="ratio_h" class="w-25" type="number" onchange="config.update_ratio()"></input>
             </div>
           </div>
           <div class="crop-auto mt-2 d-none">
             <input type="checkbox" onchange="config.update(this)" id="auto_focal" />
-            <label for="auto_focal">Auto detect image focal point</label>
+            <label for="auto_focal">自动检测图片中心点</label>
           </div>
           <div class="crop-align mt-4 d-none">
             <div class="anchor-points mx-auto">
@@ -101,50 +99,49 @@
               <div data-n="8" onclick="config.set_focal(this)"></div>
               <div data-n="9" onclick="config.set_focal(this)"></div>
             </div>
-            <div class="mt-2 text-center">Set image focal point</div>
+            <div class="mt-2 text-center">设置图片中心点</div>
           </div>
-          <label class="no-resize"><input tabindex="-1" type="checkbox" id="no_resize" onchange="config.update(this)" /> Do not resize</label>
+          <label class="no-resize"><input tabindex="-1" type="checkbox" id="no_resize" onchange="config.update(this)" /> 不要更改大小</label>
         </div>
       </div>
       <!-- BORDER  -->
       <div class="panel">
         <div class="d-flex">
-          <button type="button" onclick="birme.show_modal('wm')" class="btn btn-wm w-50 mr-1">Watermark</button>
-          <button type="button" onclick="config.toggle_panel(this.parentNode)" class="btn btn-toggle w-50">Border</button>
+          <button type="button" onclick="birme.show_modal('wm')" class="btn btn-wm w-50 mr-1">水印</button>
+          <button type="button" onclick="config.toggle_panel(this.parentNode)" class="btn btn-toggle w-50">边框</button>
         </div>
 
         <div class="options-holder">
           <div class="border-options d-flex justify-content-between">
             <div>
-              Color:
+              边框颜色:
               <input type="color" id="border_color" onchange="config.update(this)" />
             </div>
             <div>
-              Thickness:
+              边框宽度:
               <input type="number" id="border_width" onchange="config.update(this)" />
             </div>
           </div>
         </div>
       </div>
       <div class="panel">
-        <button type="button" onclick="config.toggle_panel(this)" class="btn btn-toggle">Image Format &amp; Quality</button>
+        <button type="button" onclick="config.toggle_panel(this)" class="btn btn-toggle">图片格式 &amp; 质量</button>
         <div class="options-holder">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <div>
-              <label for="quality_preset_select">Quality Preset: </label>
+              <label for="quality_preset_select">质量: </label>
               <select type="select" name="quality_preset_select" id="quality_preset" onchange="config.update(this)">
-                <option value="disabled">Disabled</option>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high" selected>High</option>
-                <option value="hermite">Hermite</option>
+                <option value="disabled">禁用</option>
+                <option value="low">低质量</option>
+                <option value="medium">中等质量</option>
+                <option value="high" selected>高质量</option>
               </select>
             </div>
           </div>
           <div class="d-flex justify-content-between align-items-center mb-2">
             <div>
               <input type="radio" name="image_format" id="image_format_preserve" value="preserve" onchange="config.update(this)" />
-              <label for="image_format_preserve">Same as original images</label>
+              <label for="image_format_preserve">与原图片相同</label>
             </div>
           </div>
 
@@ -153,7 +150,7 @@
               <input type="radio" name="image_format" id="image_format_jpeg" value="jpeg" onchange="config.update(this)" />
               <label for="image_format_jpeg">JPEG</label>
             </div>
-            <div>Quality <input type="number" min="10" id="quality_jpeg" onchange="config.update(this)" />%</div>
+            <div>质量 <input type="number" min="10" id="quality_jpeg" onchange="config.update(this)" />%</div>
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
@@ -161,46 +158,47 @@
               <input type="radio" name="image_format" id="image_format_webp" value="webp" onchange="config.update(this)" />
               <label for="image_format_webp">WEBP</label>
             </div>
-            <div>Quality <input type="number" min="10" id="quality_webp" onchange="config.update(this)" />%</div>
+            <div>质量 <input type="number" min="10" id="quality_webp" onchange="config.update(this)" />%</div>
           </div>
-          <a href="https://www.birme.net/blog/best-jpeg-quality-for-bulk-image-resizing/" target="_blank">Need Help?</a>
+          <a href="https://www.birme.net/blog/best-jpeg-quality-for-bulk-image-resizing/" target="_blank">我不了解该选择哪种质量?</a>
         </div>
       </div>
 
       <!-- RENAME -->
       <div class="panel">
-        <button type="button" onclick="config.toggle_panel(this)" class="btn btn-toggle">Rename</button>
+        <button type="button" onclick="config.toggle_panel(this)" class="btn btn-toggle">重命名</button>
 
         <div class="options-holder">
-          File name pattern e.g. image-xxx<br/> or ORIGINAL-NAME_400x400
+          文件名的模板, 例如: image-xxx<br/> 或 ORIGINAL-NAME_400x400
           <input type="text" id="rename" onchange="config.update(this)" />
           <br />
           <br />
-          File name starting number
+          文件名的起始序号
           <input type="number" id="rename_start" onchange="config.update(this)" class="w-100" />
         </div>
       </div>
       <div class="save-btns d-flex mb-2">
         <div class="w-50 pr-1">
           <button type="button" class="btn btn-primary btn-sm w-100 mr-1" onclick="birme.save_all(true);">
-            Save as zip
+            保存为 .zip
           </button>
         </div>
         <div class="w-50 pl-1">
-          <button type="button" class="btn btn-primary btn-sm w-100" onclick="birme.save_all(false);">Save files</button>
+          <button type="button" class="btn btn-primary btn-sm w-100" onclick="birme.save_all(false);">保存为文件</button>
         </div>
       </div>
       <div class="d-flex">
-        <a class="btn btn-sm btn-remove w-50" href="javascript:document.location.reload()">Remove All</a>
-        <a class="btn btn-sm btn-reset w-50" href="javascript:config.load(true)">Reset Settings</a>
+        <a class="btn btn-sm btn-remove w-50" href="javascript:document.location.reload()">清除全部</a>
+        <a class="btn btn-sm btn-reset w-50" href="javascript:config.load(true)">重置所有设定</a>
       </div>
     </div></div>
     <div class="section section-about">
       <div class="content col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-        <h2>About</h2>
+        <h2>关于</h2>
         <p>I made this simple copy of BIRME to add more image quality options for Stable Diffusion users who crop training images!</p>
         <p>NOTE: FIREFOX NOT SUPPORTED (<a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingQuality#browser_compatibility">supported browsers</a>)</p>
         <p><a href="https://birme.net">Support the author of BIRME</a></p>
+        <p>汉化/托管 by 大以巴狼艾斯</p>
       </div>
     </div>
     <div class="modal">
@@ -214,7 +212,7 @@
           </g>
         </svg>
         <br />
-        Processing...
+        处理中...
       </div>
       <div class="wm">
         <div class="wm-preview">
@@ -225,11 +223,11 @@
         <div class="wm-settings p-4">
           <div class="icon icon-delete " onclick="birme.hide_modal()"></div>
           <div class="form-group">
-            <label for="wm_text">Watermark text</label>
+            <label for="wm_text">水印文本</label>
             <input type="text" class="form-control" id="wm_text" name="wm_text" placeholder="" onkeyup="config.update(this)" />
           </div>
           <div class="form-group">
-            <label for="wm_font">Font</label>
+            <label for="wm_font">字体</label>
             <select type="select" class="form-control" id="wm_font" name="wm_font" onchange="config.update(this)">
               <option value="sans-serif">Arial/Helvetica</option>
               <option value="serif">Times New Roman</option>
@@ -237,15 +235,15 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="wm_size">Font Size</label>
+            <label for="wm_size">字体大小</label>
             <input type="number" min="5" max="100" id="wm_size" name="wm_size" onchange="config.update(this)">
           </div>
           <hr />
-          <h3 class="text-center"> Or </h3>
+          <h3 class="text-center"> 或 </h3>
           <div class="form-group text-center">
             <div class="btn-browse btn btn-primary" style="position: relative;">
               <input type="file" class="inputfile" onchange="config.upload_wm(event)" />
-              <label><span>Upload a watermark image</span></label>
+              <label><span>上传水印图片</span></label>
             </div>
             <div class="wm_image">
             </div>
